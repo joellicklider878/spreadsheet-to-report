@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "spreadsheet-to-report"
+version = "0.1.0"
+description = "Validate sales Excel spreadsheets and generate consolidated regional reports."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [
+    { name = "joel licklider", email = "joellicklider@gmail.com" },
+]
+dependencies = [
+    "pandas>=2.0.0",
+    "openpyxl>=3.1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "ruff>=0.4.0",
+]
+
+[project.scripts]
+spreadsheet-to-report = "automate_excel:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+py-modules = ["automate_excel"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
